@@ -35,9 +35,9 @@ either_less_than_hundred = num_1 < 100 or num_2 < 100
 not_equal = num_1 != num_2
 not_zero = num_1 != 0 and num_2 != 0
 
-print(f"Both numbers are greater than 0: {both_greater_than_zero}")
-print(f"Both numbers are greater than 100: {both_greater_than_hundred}")
-print(f"Either number is even: {either_even}")
-print(f"Either number is less than 100: {either_less_than_hundred}")
-print(f"The numbers are not equal: {not_equal}")
-print(f"Neither number is zero: {not_zero}")
+print(f"\nBoth numbers are greater than 0: {both_greater_than_zero}")
+print(f"\nBoth numbers are greater than 100: {both_greater_than_hundred}")
+print(f"\nEither number is even: {either_even}")
+print(f"\nEither number is less than 100: {either_less_than_hundred}")
+print(f"\nThe numbers are not equal: {not_equal}")
+print(f"\nNeither number is zero: {not_zero}")
