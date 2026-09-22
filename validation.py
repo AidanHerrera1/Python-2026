@@ -15,8 +15,8 @@ ASSIGNMENT 5A: INPUT VALIDATION
 #Phone Number: Cannot be blank.
 #Ticket Count: Must be a valid integer > 0 (Crash-Proof!).
 #Additional Tickets? (Y/N)
-
-try: 
+# First and Last name
+try:
     fname = ""
     while not fname:
         fname = input("Please enter your first name: ")
@@ -26,26 +26,47 @@ try:
     while not last_name:
         last_name = input("Please enter your last name: ")
         last_name = last_name.strip()
-   
+#Phone number
+    phone = ""
+    while not phone:
+        phone = input("Please enter your phone number: ")
+        phone = phone.strip()
+#Age verification + drink ticket
     age = -1
     while age <= 0:
-            age = int(input("Please enter your age: (Whole years, round down)"))
-except ValueError: 
-        print("Im sorry, that is not a valid value")
-except Exception as e:
-        print(f"Error: {e}")
-if age < 21:
-        print("\nYou are not old enough to receive a drink ticket.\n")
-else:
-        print("\nYou are old enough to receive a drink ticket.\n")
-tickets = 1
-while True:
         try:
-            tickets = int(input("How many tickets would you like to purchase? (Must be a whole number greater than 0)"))
-            if tickets > 0:
-                break
-            else:
+            age = int(input("Please enter your age: (Whole years, round down) "))
+            if age <= 0:
+                print("Please enter an age greater than 0.")
+        except ValueError:
+            print("I'm sorry, that is not a valid age.")
+
+    if age < 21:
+        print("\nYou are not old enough to receive a drink ticket.\n")
+    else:
+        print("\nYou are old enough to receive a drink ticket.\n")
+#Ticket count and additional tickets
+    tickets = 0
+    while tickets <= 0:
+        try:
+            tickets = int(input("How many tickets would you like to purchase? (Must be a whole number greater than 0) "))
+            if tickets <= 0:
                 print("Please enter a valid number of tickets greater than 0.")
         except ValueError:
             print("Invalid input. Please enter a whole number.")
-print("You have purchased", {tickets}, "ticket(s).")
+
+    more_tickets = ""
+    while True:
+        more_tickets = input("Would you like to purchase additional tickets? (Y/N) ").strip().upper()
+        if more_tickets in ("Y", "N"):
+            break
+        else:
+            print("Please enter Y or N.")
+
+    print(f"You have purchased {tickets} ticket(s).")
+    print(f"Additional tickets requested: {more_tickets}")
+except ValueError:
+    print("I'm sorry, that is not a valid value.")
+except Exception as error:
+    print(f"An unexpected error occurred: {error}")
+        
