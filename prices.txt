@@ -1,0 +1,4 @@
+Child,5.00
+Adult,10.00
+Student,8.00
+Senior Citizen,7.00
